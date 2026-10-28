@@ -1,7 +1,7 @@
 # Geometry Dash webport
 
-<p align="center">
-  <img width="960" height="540" alt="Geometry Dash webport" src="https://github.com/user-attachments/assets/11517712-f46a-4d53-944b-2c0b6d92cae9" />
+<img width="960" height="540" alt="In-game screenshot" src="https://github.com/user-attachments/assets/081fad5c-7e96-46fe-981a-7f54fb62e6df" />
+
 </p>
 
 > A browser version of Geometry Dash that lets you play without installing anything.
