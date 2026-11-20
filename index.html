@@ -175,7 +175,51 @@ button,input,textarea{touch-action:manipulation;}
       return get.call(this, type, attrs);
     };
   } catch (e) {}
-})();</script></head><body><div id="gdLoad"><i></i><span id="gdLoadPct"></span></div><div id="errOverlay" role="alert"></div><div id="app"><div id="stage"><canvas id="canvas" width="1920" height="1080"></canvas></div><div id="midbar"><div id="bars"><div class="abrow"><span class="ablabel" id="wasmLabel">WASM</span><div class="abtrack"><div class="abfill" id="wasmFill"></div></div><span class="abpct" id="wasmPct">0%</span></div><div class="abrow"><span class="ablabel" id="dataLabel">DATA</span><div class="abtrack"><div class="abfill" id="dataFill"></div></div><span class="abpct" id="dataPct">0%</span></div></div><div id="bootbars"><div class="abtrack"><div class="abfill" id="bootFill"></div></div><span class="abpct" id="bootPct">0%</span></div><div id="fps"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.2" y="2" width="13.6" height="9" rx="1.6" fill="none" stroke="#888" stroke-width="1.4"/><rect x="6.5" y="12" width="3" height="2" fill="#888"/><rect x="4.5" y="14.2" width="7" height="1.3" rx="0.6" fill="#888"/></svg><span id="fpsval">-- fps</span></div><span id="perfval" style="font-size:10px" title="Queue delay is event-to-game polling, not total display latency"></span><button id="fsBtn" type="button">Fullscreen</button><button id="saveBtn" type="button" title="Save game progress and local levels">Save progress</button><button id="clearBtn" type="button" title="Delete saved progress and login">Reset progress</button></div><div id="console"></div></div><script>(function(){var WASM_URL="https://raw.githubusercontent.com/Ale7208/geometry-dash-wasm/main/payload/wasm-523d9362955eba27a8ce64ec.gz";var f=window.fetch;function fixed(r){return r.clone().json().then(function(j){if(WASM_URL&&j&&j.wasm)j.wasm.url=WASM_URL;return new Response(JSON.stringify(j),{status:200,headers:{"Content-Type":"application/json"}});});}window.fetch=function(i,o){var u=typeof i==='string'?i:(i&&i.url)||'';if(u.indexOf('gd_assets.json')<0)return f.apply(this,arguments);var k=new URL(u,document.baseURI).href.split('?')[0];return f.apply(this,arguments).then(function(r){if(!r.ok)return r;return fixed(r).then(function(n){var copy=n.clone();if(window.caches)caches.open('gdwasm-assets').then(function(c){return c.put(k,copy);}).catch(function(){});return n;});}).catch(function(e){if(!window.caches)throw e;return caches.open('gdwasm-assets').then(function(c){return c.match(k);}).then(function(r){if(r)return r;throw e;});});};})();</script><script>
+})();</script>
+<style id="gd-password-gate-style">
+#gd-password-gate{position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;padding:24px;background:#08090d;color:#fff;font-family:Arial,sans-serif}
+#gd-password-gate *{box-sizing:border-box}
+#gd-password-gate .gd-password-card{width:min(100%,380px);padding:32px 26px;border:1px solid #343944;border-radius:16px;background:#151820;text-align:center;box-shadow:0 18px 60px #0009}
+#gd-password-gate h1{margin:0 0 10px;font-size:25px}
+#gd-password-gate p{margin:0 0 22px;color:#b8bfcc;font-size:14px}
+#gd-password-gate input{display:block;width:100%;padding:13px 14px;border:1px solid #424957;border-radius:9px;background:#0c0f15;color:#fff;font-size:16px;outline:none}
+#gd-password-gate input:focus{border-color:#58a6ff}
+#gd-password-gate button{width:100%;margin-top:12px;padding:13px;border:0;border-radius:9px;background:#3478e5;color:white;font-size:15px;font-weight:700;cursor:pointer}
+#gd-password-gate button:hover{background:#2868ce}
+#gd-password-gate #gd-password-error{display:none;margin:14px 0 0;color:#ff7373;font-size:13px}
+</style>
+</head><body>
+
+<div id="gd-password-gate">
+  <div class="gd-password-card">
+    <h1>🔒 Password Required</h1>
+    <p>Enter the password to access Geometry Dash Webport.</p>
+    <form id="gd-password-form">
+      <input id="gd-password-input" type="password" placeholder="Enter password" autocomplete="current-password" aria-label="Password" autofocus>
+      <button type="submit">Unlock</button>
+    </form>
+    <div id="gd-password-error" role="alert">Incorrect password. Try again.</div>
+  </div>
+</div>
+<script id="gd-password-gate-script">
+(function(){
+  var gate=document.getElementById('gd-password-gate');
+  var form=document.getElementById('gd-password-form');
+  var field=document.getElementById('gd-password-input');
+  var error=document.getElementById('gd-password-error');
+  if(!gate||!form||!field||!error)return;
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    if(field.value==='maplesyrup22'){
+      gate.remove();
+    }else{
+      error.style.display='block';
+      field.select();
+    }
+  });
+  field.focus();
+})();
+</script><div id="gdLoad"><i></i><span id="gdLoadPct"></span></div><div id="errOverlay" role="alert"></div><div id="app"><div id="stage"><canvas id="canvas" width="1920" height="1080"></canvas></div><div id="midbar"><div id="bars"><div class="abrow"><span class="ablabel" id="wasmLabel">WASM</span><div class="abtrack"><div class="abfill" id="wasmFill"></div></div><span class="abpct" id="wasmPct">0%</span></div><div class="abrow"><span class="ablabel" id="dataLabel">DATA</span><div class="abtrack"><div class="abfill" id="dataFill"></div></div><span class="abpct" id="dataPct">0%</span></div></div><div id="bootbars"><div class="abtrack"><div class="abfill" id="bootFill"></div></div><span class="abpct" id="bootPct">0%</span></div><div id="fps"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.2" y="2" width="13.6" height="9" rx="1.6" fill="none" stroke="#888" stroke-width="1.4"/><rect x="6.5" y="12" width="3" height="2" fill="#888"/><rect x="4.5" y="14.2" width="7" height="1.3" rx="0.6" fill="#888"/></svg><span id="fpsval">-- fps</span></div><span id="perfval" style="font-size:10px" title="Queue delay is event-to-game polling, not total display latency"></span><button id="fsBtn" type="button">Fullscreen</button><button id="saveBtn" type="button" title="Save game progress and local levels">Save progress</button><button id="clearBtn" type="button" title="Delete saved progress and login">Reset progress</button></div><div id="console"></div></div><script>(function(){var WASM_URL="https://raw.githubusercontent.com/Ale7208/geometry-dash-wasm/main/payload/wasm-523d9362955eba27a8ce64ec.gz";var f=window.fetch;function fixed(r){return r.clone().json().then(function(j){if(WASM_URL&&j&&j.wasm)j.wasm.url=WASM_URL;return new Response(JSON.stringify(j),{status:200,headers:{"Content-Type":"application/json"}});});}window.fetch=function(i,o){var u=typeof i==='string'?i:(i&&i.url)||'';if(u.indexOf('gd_assets.json')<0)return f.apply(this,arguments);var k=new URL(u,document.baseURI).href.split('?')[0];return f.apply(this,arguments).then(function(r){if(!r.ok)return r;return fixed(r).then(function(n){var copy=n.clone();if(window.caches)caches.open('gdwasm-assets').then(function(c){return c.put(k,copy);}).catch(function(){});return n;});}).catch(function(e){if(!window.caches)throw e;return caches.open('gdwasm-assets').then(function(c){return c.match(k);}).then(function(r){if(r)return r;throw e;});});};})();</script><script>
 (function () {
   'use strict';
   var menuOpen = false;
